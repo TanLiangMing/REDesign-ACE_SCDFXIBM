@@ -1,4 +1,4 @@
-# RE Design Acclimatisation Conditioning Exoskeleton (ACE)
+# RE Design Acclimatisation Conditioning Engine (ACE)
 
 Team RE Design's proposed solution for SCDF X IBM Lifesavers' Innovation Challenge: Call for Code 2020.
 
@@ -36,7 +36,15 @@ First Responders may face an increasing physical challenge because of the increa
 
 Since the SCDF is currently looking into integrating Equivital EQ02 LifeMonitor with wearable sensors in the Heat Strain Monitor System (HSM) [[3](#references)], we intend to leverage on this and build a more powerful model with the data collected from this system.
 
+Our idea would be implemented in 2 phases: Training Phase, and Mission Phase.
 
+Training Phase:
+Individual physiological data (heart rate, core temperature [derive from skin temperature], breathing rate) from the wearable, as well as environmental data (ET and EH) from a WBGT device, would be transmitted to a central hub when soldiers are training. Our machine learning model, Acclimatisation Conditioning Engine (ACE), would then process the data via clustering. A global threshold for each of the physiological data for a given environmental data would first be derived for anomaly detection, following that, when sufficient data is collected, a personal threshold would be derived by giving individual data a higher weightage in the calculations.
+
+Mission Phase:
+The central hub would continue to learn and monitor the soldiers' conditions. All soldiers would have a "health bar". When an anomaly is detected, be it during training or when soldiers are deployed, the central hub would notify the ground commander and HQ in the form of a depleting health bar, changing from green to yellow or red, depending on the number of anomalous physiological data received.
+
+With this, both the ground commander and HQ can monitor the situation of all soldiers accurately as the model does not depend on a fixed index, but instead generates personal thresholds based on individualised data. Considering the highly volatile weather due to climate change, our customised thresholds provide a more accurate estimation of the soldiers' current "health". 
 
 ## Demo video
 
