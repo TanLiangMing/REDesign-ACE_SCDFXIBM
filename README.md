@@ -4,7 +4,7 @@ Team RE Design's proposed solution for SCDF X IBM Lifesavers' Innovation Challen
 
 ## Contents
 
-1. [Short description](#short-description)
+1. [Introduction](#introduction)
 1. [Demo video](#demo-video)
 1. [The architecture](#the-architecture)
 1. [Long description](#long-description)
@@ -17,7 +17,7 @@ Team RE Design's proposed solution for SCDF X IBM Lifesavers' Innovation Challen
 1. [Acknowledgments](#acknowledgments)
 1. [References](#references)
 
-## Short description
+## Introduction
 
 ### What's the problem?
 
@@ -51,10 +51,6 @@ Since the SCDF is currently looking into integrating Equivital EQ02 LifeMonitor 
 2. Watson Speech to Text processes the audio and extracts the text.
 3. Watson Translation (optionally) can translate the text to the desired language.
 4. The app stores the translated text as a document within Object Storage.
-
-## Long description
-
-[More detail is available here](DESCRIPTION.md)
 
 ## Project roadmap
 
