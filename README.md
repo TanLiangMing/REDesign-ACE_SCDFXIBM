@@ -15,6 +15,7 @@ Team RE Design's proposed solution for SCDF X IBM Lifesavers' Innovation Challen
 1. [Built with](#built-with)
 1. [Authors](#authors)
 1. [Acknowledgments](#acknowledgments)
+1. [References](#references)
 
 ## Short description
 
@@ -142,3 +143,6 @@ See also the list of [contributors](https://github.com/Code-and-Response/Project
 ## Acknowledgments
 
 * Based on [Billie Thompson's README template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2).
+
+## References
+* Reference 1
