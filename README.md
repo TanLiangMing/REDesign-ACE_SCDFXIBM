@@ -139,7 +139,11 @@ You can find a running system to test at [callforcode.mybluemix.net](http://call
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Tan Liang Ming** - *Leader*
+* **Loh Aik Hui**
+* **Matthew Loo Jun Kuan**
+* **Neo Lin How, Anthony**
+* **Victor Gwee De Ming**
 
 See also the list of [contributors](https://github.com/Code-and-Response/Project-Sample/graphs/contributors) who participated in this project.
 
