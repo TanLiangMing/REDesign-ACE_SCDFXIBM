@@ -1,7 +1,5 @@
 # RE Design Acclimatisation Conditioning Engine (ACE)
 
-<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/ACE Logo transparent.png" alt="Logo" height="250"/>
-
 Team RE Design's proposed solution for SCDF X IBM Lifesavers' Innovation Challenge: Call for Code 2020.
 
 ## Contents
@@ -57,13 +55,15 @@ With this, both the ground commander and HQ can monitor the situation of all sol
 
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Architecture.png" alt="Architecture" height="450"/>
 
-1. EQ02 Life Monitor measures and transmits vitals information over wireless data link
-2. Watson Internet of Things platform processes and visualises the information 
-3. Watson Cloudant stores the information as a database on the cloud
-4. Watson Studio utilizes Jupyter notebook to process the data and train the anomaly detection model
+1. **EQ02 Life Monitor** measures and transmits vitals information over wireless data link
+2. **Watson Internet of Things** platform processes and visualises the information 
+3. **Watson Cloudant** stores the information as a database on the cloud
+4. **Watson Studio** utilizes **Jupyter notebook** to process the data and train the anomaly detection model
 
+Watson Internet of Things: <br>
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Watson_IoT_platform.JPG" alt="IOT" height="450"/>
 
+Cloudant Database: <br>
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Cloudant_Database.JPG" alt="Cloudant Database" height="350"/>
 
 ## Project roadmap
