@@ -70,7 +70,7 @@ Considering the highly volatile weather due to climate change, our customised th
 IBM Cloud CLI
 
 Create a new Notebook on IBM Watson Studio and Import Packages
-```bash
+```python
 import numpy as np
 import pandas as pd
 import matplotlib as plt
@@ -112,7 +112,7 @@ Upload the following .csv files under examples/res to your Asset folder
 
 Include a cell to store your IBM Watson Studio credentials in a dictionary. The format is as follows:
 
-```bash
+```python
 credentials = {
     'IAM_SERVICE_ID': '*****',
     'IBM_API_KEY_ID': '*****',
@@ -123,7 +123,7 @@ credentials = {
 ```
 For easier access to the 5 training datasets:
 
-```bash
+```python
 n_datasets = 5
 dfs = []
 
@@ -146,7 +146,7 @@ X contains 5 sets of data obtained from trainings under different 5 environmenta
 
   1. Using df_10min and df_30min, we can calculate the average data (E.g Ext temp, Humidity etc)
      over a 10min and 30min window respectively.
-  ```bash
+  ```python
   # Extract the Features from the Data
   X1 = pd.DataFrame(df_10min[["Ext Temp", "Humidity", "Core Temp", "Heart Rate", "Breathing Rate", "PSI"]])
 
@@ -160,7 +160,7 @@ X contains 5 sets of data obtained from trainings under different 5 environmenta
      as anomalous during operations and trainings if it deviates significantly from the data points of trainings under
      similar environmental conditions.
 
-  ```bash
+  ```python
   # Create Anomaly Detection Model using LocalOutlierFactor
   lof = LocalOutlierFactor(n_neighbors = num_neighbors, contamination = cont_fraction)
   ```
@@ -170,7 +170,7 @@ X contains 5 sets of data obtained from trainings under different 5 environmenta
      conducted in a safe environment. These 2 parameters can be further optimised with other data collected
      in SCDF. As an example, we have set the parameters as 10 and 0.00025 for num_neighbours and cont_fractions.
 
-  ```bash
+  ```python
   # Set the Parameters for Neighborhood
   num_neighbors = 10      # Number of Neighbors
   cont_fraction = 0.00025    # Fraction of Anomalies
@@ -178,7 +178,7 @@ X contains 5 sets of data obtained from trainings under different 5 environmenta
 
  4. The model is then fitted onto data obtained from training.
 
-  ```bash
+  ```python
   # Fit the Model on the Data and Predict Anomalies
   lof.fit(X)
   ```
@@ -186,7 +186,7 @@ X contains 5 sets of data obtained from trainings under different 5 environmenta
  5. After the model is built, we load the test dataset (SCDF_dataset_test1.csv) and use the model to
     predict anomalies in the test dataset.
 
-  ```bash
+  ```python
   #Load test dataset
   body = client.get_object(Bucket=credentials['BUCKET'],Key='SCDF_dataset_test1.csv')['Body']
   # add missing __iter__ method, so pandas accepts body as file-like object
@@ -200,7 +200,7 @@ X contains 5 sets of data obtained from trainings under different 5 environmenta
      accordingly to tune the sensitivity of the detection system. For example, if mission setting is high risk,
      counterLimit should be set to a lower value.
 
-  ```bash
+  ```python
   counter = 0
   counterLimit = 10
 
