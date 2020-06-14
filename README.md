@@ -87,7 +87,7 @@ import seaborn as sb
 2. Integrate local devices by adding devices to the IoT platform. Set Device type, Device ID and authentication token.	
 ![Add](pics/Add.JPG)	
 
-3. Using the IBM Cloud CLI, push a web application onto the IBM Cloud	using IBM Cloud CLI
+3. Using the IBM Cloud CLI, push a web application onto the IBM Cloud.
 
 ![loud_push](pics/loud_push.JPG)	
 
