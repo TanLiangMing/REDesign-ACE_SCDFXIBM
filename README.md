@@ -199,7 +199,7 @@ of the responders in an operation
 
 Anomaly Detection Model
 
-![Scenario Table]Scenario table.png
+
 
 For illustration purposes, we show how our algorithm works with 1 input variable (Heart rate). The heart rate of the responder since the start of the operation is graphed. 
 
@@ -228,13 +228,16 @@ Otherwise, an anomaly might be flagged because of anomalous environmental condit
 vital signs.
 
 ## Future extensions
-'**Further analysis of data points**'
+**Further analysis of data points**:
+
 We can incorporate a distance algorithm that measures how serious the deviations of the anomalies are to gauge the direness of the responder’s condition. We can also include the detection of points that could potentially lead to anomalies using predictive machine learning (leverage from DSO’s predictive analysis for the Heat Sensor Monitor). This would allow commanders to better gauge the condition of the teams.
 
-'**Enhanced intervention**'
+**Enhanced intervention**:
+
 Besides simply having just warning signs and notifications from the anomaly detection system, we can incorporate other physical mechanisms that can provide instantaneous relief during very serious states (eg. when prolonged consecutive anomalies detected).
 
-'**Incorporating performance data**'
+**Incorporating performance data**:
+
 Given that mental and physical performance would diminish far before the time-to-fatigue, it would be important to have an indication of the responder’s performance. To achieve this, we would need data on the responder’s performance during trainings, which could be obtained through evaluation from instructors, peers and self. However, this idea needs to be refined further. Collecting objective data is difficult, and each responder’s performance varies across different tasks depending on experience and aptitude. 
 
   
