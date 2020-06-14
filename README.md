@@ -61,7 +61,7 @@ With this, both the ground commander and HQ can monitor the situation of all sol
 
 ## Project roadmap
 
-Roadmap.jpg
+![Roadmap](Roadmap.jpg)
 
 ## Getting started
 
