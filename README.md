@@ -11,6 +11,7 @@ Team RE Design's proposed solution for SCDF X IBM Lifesavers' Innovation Challen
 1. [Getting started](#getting-started)
 1. [Future extensions](#future-extensions)
 1. [Running the tests](#running-the-tests)
+1. [Live demo](#live-demo)
 1. [Built with](#built-with)
 1. [Authors](#authors)
 1. [Acknowledgments](#acknowledgments)
@@ -75,6 +76,7 @@ Cloudant Database: <br>
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
+IBM cloud CLI
 
 Create a new Notebook on IBM Watson Studio and Import Packages 
 ```bash
@@ -87,6 +89,15 @@ from botocore.client import Config
 import ibm_boto3
 import seaborn as sb
 ```
+### Watson Internet of Things Platform
+Create and launch an instance of Watson Internet of Things platform
+![Launch](pics/Launch.JPG)
+
+Integrate local devices by adding devices to the IoT platform. Set Device type, Device ID and authentication token.
+![Add](pics/Add.JPG)
+
+Using the IBM Cloud CLI, push a web application onto the IBM Cloud
+![loud_push](pics/loud_push.JPG)
 
 ### Installing
 
