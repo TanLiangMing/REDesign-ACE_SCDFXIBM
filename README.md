@@ -62,8 +62,7 @@ With this, both the ground commander and HQ can monitor the situation of all sol
 
 
 
-Cloudant Database: <br>
-<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Cloudant_Database.JPG" alt="Cloudant Database" height="350"/>
+
 
 ## Project roadmap
 
@@ -105,9 +104,16 @@ IoT devices like the EQ02 Life Monitor and WBGT thermometer can connect and send
 The status of the devices can be monitored through the IoT platform
 ![Browse](pics/Browse.JPG)
 
-Live feed from the different monitors can be displayed
+Live feed from the different monitors can be displayed and viewed from the platform
 Watson Internet of Things: <br>
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Watson_IoT_platform.JPG" alt="IOT" height="450"/>
+
+### IBM Cloudant
+Cloudant Database: <br>
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Cloudant_Database.JPG" alt="Cloudant Database" height="350"/>
+
+
+
 
 ### Installing
 
