@@ -92,7 +92,7 @@ Using the IBM Cloud CLI, push a web application onto the IBM Cloud
 ![loud_push](pics/loud_push.JPG)	
 
 IoT devices like the EQ02 Life Monitor and WBGT thermometer can connect and send data to the IoT platform via the web application	
-![HR](pics/HR.JPG)	
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/HR.JPG" alt="IOT" height="350"/>	
 
 The status of the devices can be monitored through the IoT platform	
 ![Browse](pics/Browse.JPG)	
