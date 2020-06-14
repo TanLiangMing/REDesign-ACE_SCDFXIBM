@@ -60,6 +60,7 @@ With this, both the ground commander and HQ can monitor the situation of all sol
 4. Watson Studio utilizes Jupyter notebook to process the data and train the anomaly detection model
 
 ![Iot](Watson IoT platform.JPG)
+
 ![Cloudant](Cloudant Database.JPG)
 
 ## Project roadmap
