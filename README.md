@@ -198,6 +198,16 @@ of the responders in an operation
 
 Anomaly Detection Model
 
+| Situation | Window | Anomaly detected | Time-to-fatigue/min |
+| --- | --- | --- | --- |
+| 1 | 10 min | Y | <10 |
+|   | 30 min | Y |
+| 2 | 10 min | Y | <10 |
+|   | 30 min | N |
+| 3 | 10 min | N | <30 |
+|   | 30 min | Y |
+| 4 | 10 min | N | <30 |
+|   | 30 min | N |     |
 
 
 Our model is novel because it creates a cluster of normal data points for every set of environmental conditions. 
