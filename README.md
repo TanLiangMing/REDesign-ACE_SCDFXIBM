@@ -81,23 +81,22 @@ import ibm_boto3
 import seaborn as sb
 ```
 ### Watson Internet of Things Platform	
-Create and launch an instance of Watson Internet of Things platform	
+1. Create and launch an instance of Watson Internet of Things platform	
 ![Launch](pics/Launch.JPG)	
 
-Integrate local devices by adding devices to the IoT platform. Set Device type, Device ID and authentication token.	
+2. Integrate local devices by adding devices to the IoT platform. Set Device type, Device ID and authentication token.	
 ![Add](pics/Add.JPG)	
 
-Using the IBM Cloud CLI, push a web application onto the IBM Cloud	
-
+3. Using the IBM Cloud CLI, push a web application onto the IBM Cloud	
 ![loud_push](pics/loud_push.JPG)	
 
-IoT devices like the EQ02 Life Monitor and WBGT thermometer can connect and send data to the IoT platform via the web application	
+4. IoT devices can connect and send data to the IoT platform via the cloud web application
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/HR.JPG" alt="IOT" height="350"/>	
 
-The status of the devices can be monitored through the IoT platform	
+5. The status of the various devices can be monitored through the IoT platform	
 ![Browse](pics/Browse.JPG)	
 
-Live feed from the different monitors can be displayed and viewed	
+6. Live feed from the different monitors can be displayed and viewed	
 Watson Internet of Things: <br>	
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Watson_IoT_platform.JPG" alt="IOT" height="450"/>	
 
