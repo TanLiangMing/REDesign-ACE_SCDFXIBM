@@ -205,15 +205,15 @@ For illustration purposes, we show how our algorithm works with 1 input variable
 
 The average heart rate of the responder for the past 10 and 30 minutes are calculated. (We chose to use average but this model can be further optimised by taking into account trends, weighted average etc). The data is continuously updated in intervals of 5 seconds as new data is collected and sent to the cloud
 
-![Iot](pics/Watson IoT platform.JPG)
+![Graph1](pics/graph1.PNG)
 
 By putting more weights to the environmental variables (Temp and humidity), we are able to compare if the 10min rolling average data for a specific responder during operation is an anomalous result compared to the 10min rolling average of the responder’s own training data under similar environmental conditions. 
 
-![Iot](pics/Watson IoT platform.JPG)
+![Graph2](pics/graph2.PNG)
 
 The responder’s 30min rolling average data is also compared to his 30 rmin rolling average data during training.
 
-![Iot](pics/Watson IoT platform.JPG)
+![Graph3](pics/graph3.PNG)
 
 The thresholds are determined by the cont_fraction in the model which was implemented above. This variable can be further optimised. 
 
