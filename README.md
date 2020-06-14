@@ -73,41 +73,142 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
+Create a new Notebook on IBM Watson Studio and Import Packages 
 ```bash
-dnf install wget
-wget http://www.example.com/install.sh
-bash install.sh
+import numpy as np
+import pandas as pd
+import matplotlib as plt
+import types
+import io
+from botocore.client import Config
+import ibm_boto3
+import seaborn as sb
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+Upload the following .csv files under examples/res to your Asset folder
+  1. 5 sets of training dataset (SCDF_dataset1.csv -  SCDF_dataset5.csv)
+  2. 1 set of test dataset: (SCDF_dataset_test1.csv)
 
-Say what the step will be, for example
-
-```bash
-export TOKEN="fffd0923aa667c617a62f5A_fake_token754a2ad06cc9903543f1e85"
-export EMAIL="jane@example.com"
-dnf install npm
-node samplefile.js
-Server running at http://127.0.0.1:3000/
-```
-
-And repeat
+Include a cell to store your IBM Watson Studio credentials in a dictionary. The format is as follows: 
 
 ```bash
-curl localhost:3000
-Thanks for looking at Code-and-Response!
+credentials = {
+    'IAM_SERVICE_ID': '*****',
+    'IBM_API_KEY_ID': '*****',
+    'ENDPOINT': 'https://s3-api.us-geo.objectstorage.service.networklayer.com',
+    'IBM_AUTH_ENDPOINT': 'https://iam.cloud.ibm.com/oidc/token',
+    'BUCKET': '*****'
+}
 ```
+For easier access to the 5 training datasets:
 
-End with an example of getting some data out of the system or using it for a little demo
+```bash
+n_datasets = 5
+dfs = []
+
+for i in range(n_datasets):
+    body = client.get_object(Bucket=credentials['BUCKET'],Key='SCDF_dataset%i.csv'%(i+1))['Body']
+    # add missing __iter__ method, so pandas accepts body as file-like object
+    if not hasattr(body, "__iter__"): body.__iter__ = types.MethodType( __iter__, body )
+    df_time = pd.read_csv(body, header=0, parse_dates=[0], index_col=0, squeeze=True)
+    dfs.append(df_time.copy())
+```
+We have provided 5 sets of training datasets (5 training datasets each having differing environmental conditions) 
+and 1 set of test dataset in the .csv format. 
+The datasets are created by us to simulate real life conditions that vary with external temperature and humidity 
+These files would be used primarily to build the anomaly detection model as a proof of concept.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+In our code, we experimented with 3 different sliding windows of duration (10min, 30min and 1 hour).
+X contains 5 sets of data obtained from trainings under different 5 environmental conditions.
 
+  1. Using df_10min and df_30min, we can calculate the average data (E.g Ext temp, Humidity etc) 
+     over a 10min and 30min window respectively
+  ```bash
+  # Extract the Features from the Data
+  X = pd.DataFrame(df_10min[["Ext Temp", "Humidity", "Core Temp", "Heart Rate", "Breathing Rate", "PSI"]])
+
+  # Extract the Features from the Data
+  X = pd.DataFrame(df_30min[["Ext Temp", "Humidity", "Core Temp", "Heart Rate", "Breathing Rate", "PSI"]])
+  ```
+
+  2. Local Outlier Factor was chosen as our anomaly detection algorithm where the local deviation in density 
+     of a datapoint is measured with respect to its neighbours. An anomaly is then flagged if the datapoint 
+     is sufficiently isolated compared to its neighbouring points. This trained model allows us to flag datapoint 
+     as anomalous during operations and trainings if the datapoint collected deviates significantly from the 
+     data points of other trainings under similar environmental conditions.
+  
+  ```bash
+  # Create Anomaly Detection Model using LocalOutlierFactor
+  lof = LocalOutlierFactor(n_neighbors = num_neighbors, contamination = cont_fraction)
+  ```
+  
+  3. Num_neighbours refer to the number of nearest neighbours whose density will be compared with the new 
+     datapoint. cont_fraction is set at a small value of 0.00025 as an example as we expect training to be 
+     conducted in a safe environment. These 2 parameters can be further optimised with other data collected 
+     in SCDF. As an example, we have set the parameters as 10 and 0.00025 for num_neighbours and cont_fractions. 
+     
+  ```bash
+  # Set the Parameters for Neighborhood
+  num_neighbors = 10      # Number of Neighbors
+  cont_fraction = 0.00025    # Fraction of Anomalies
+  ```
+ 
+ 4. The model is then fitted onto data obtained from training. 
+  
+  ```bash
+  # Fit the Model on the Data and Predict Anomalies
+  lof.fit(X)
+  ```
+  
+ 5. After the model is built, we load the test dataset (SCDF_dataset_test1.csv) and use the model to 
+    predict the anomalies of the test dataset. 
+  
+  ```bash
+  #Load test dataset
+  body = client.get_object(Bucket=credentials['BUCKET'],Key='SCDF_dataset_test1.csv')['Body']
+  # add missing __iter__ method, so pandas accepts body as file-like object
+  if not hasattr(body, "__iter__"): body.__iter__ = types.MethodType( __iter__, body )
+  real_time_data = pd.read_csv(body,  header=0, parse_dates=[0], index_col=0, squeeze=True)
+  real_time_data.head()
+  anomaly_or_not = clf.predict(real_time_data)
+  ```
+  
+  6. A warning would only be detected if 10 consecutive anomalies are detected. This value can be changed 
+     accordingly to tune the sensitivity of the detection system.
+     
+  ```bash
+  counter = 0
+  counterLimit = 10
+
+  for i in range(0, anomaly_or_not.size):
+      if (anomaly_or_not[i] == -1):
+        counter += 1
+          if counter >= counterLimit:
+              print("Limit has been reach at datapoint", i, "at time =", i*5, "s")
+      else:
+          counter = 0
+   ```
+### Interpreting the results
+The main advantage of our model is that it allows commanders to accurately estimate the time-to-fatigue 
+of the responders in an operation
+
+Anomaly Detection Model
+
+
+
+Our model is novel because it creates a cluster of normal data points for every set of environmental conditions. 
+This allows us to easily flag anomalous data points pertaining to the specific environmental condition. However, 
+our model will only work well if the model has been trained with a good range of different environmental conditions. 
+Otherwise, an anomaly might be flagged because of anomalous environmental conditions and not because of anomalous 
+vital signs.
+
+
+
+  
 ### Break down into end to end tests
 
 Explain what these tests test and why, if you were using something like `mocha` for instnance
