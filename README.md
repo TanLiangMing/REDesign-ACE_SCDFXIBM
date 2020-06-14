@@ -48,7 +48,7 @@ Considering the highly volatile weather due to climate change, our customised th
 
 ## Demo video
 
-[![Watch the video](https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/youtube.png)](https://youtu.be/6lHP4fo25g4)
+[![Watch the video](https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/youtube.png)](https://youtu.be/a5J9cl1-_zQ)
 
 ## The architecture
 
@@ -80,28 +80,28 @@ from botocore.client import Config
 import ibm_boto3
 import seaborn as sb
 ```
-### Watson Internet of Things Platform	
-1. Create and launch an instance of Watson Internet of Things platform	
-![Launch](pics/Launch.JPG)	
+### Watson Internet of Things Platform
+1. Create and launch an instance of Watson Internet of Things platform
+![Launch](pics/Launch.JPG)
 
-2. Integrate local devices by adding devices to the IoT platform. Set Device type, Device ID and authentication token.	
-![Add](pics/Add.JPG)	
+2. Integrate local devices by adding devices to the IoT platform. Set Device type, Device ID and authentication token.
+![Add](pics/Add.JPG)
 
 3. Using the IBM Cloud CLI, push a web application onto the IBM Cloud.
 
-![loud_push](pics/loud_push.JPG)	
+![loud_push](pics/loud_push.JPG)
 
 4. IoT devices can connect and send data to the IoT platform via the cloud web application
-<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/HR.JPG" alt="IOT" height="350"/>	
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/HR.JPG" alt="IOT" height="350"/>
 
-5. The status of the various devices can be monitored through the IoT platform	
-![Browse](pics/Browse.JPG)	
+5. The status of the various devices can be monitored through the IoT platform
+![Browse](pics/Browse.JPG)
 
-6. Live feed from the different monitors can be displayed and viewed	
-<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Watson_IoT_platform.JPG" alt="IOT" height="450"/>	
+6. Live feed from the different monitors can be displayed and viewed
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Watson_IoT_platform.JPG" alt="IOT" height="450"/>
 
-### IBM Cloudant	
-Historical data for each individual is then stored on IBM cloudant database for future access	
+### IBM Cloudant
+Historical data for each individual is then stored on IBM cloudant database for future access
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Cloudant_Database.JPG" alt="Cloudant Database" height="350"/>
 
 ### Installing
