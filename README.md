@@ -60,10 +60,6 @@ With this, both the ground commander and HQ can monitor the situation of all sol
 3. **Watson Cloudant** stores the information as a database on the cloud
 4. **Watson Studio** utilizes **Jupyter notebook** to process the data and train the anomaly detection model
 
-
-
-
-
 ## Project roadmap
 
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Roadmap.jpg" alt="Road Map" height="850"/>
@@ -98,22 +94,20 @@ Using the IBM Cloud CLI, push a web application onto the IBM Cloud
 
 ![loud_push](pics/loud_push.JPG)
 
-IoT devices like the EQ02 Life Monitor and WBGT thermometer can connect and send data to the IoT platform through the web application
+IoT devices like the EQ02 Life Monitor and WBGT thermometer can connect and send data to the IoT platform via the web application
 ![HR](pics/HR.JPG)
 
 The status of the devices can be monitored through the IoT platform
 ![Browse](pics/Browse.JPG)
 
-Live feed from the different monitors can be displayed and viewed from the platform
+Live feed from the different monitors can be displayed and viewed
 Watson Internet of Things: <br>
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Watson_IoT_platform.JPG" alt="IOT" height="450"/>
 
 ### IBM Cloudant
+Historical data for each individual is then stored on IBM cloudant to be accessed in the future.
 Cloudant Database: <br>
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Cloudant_Database.JPG" alt="Cloudant Database" height="350"/>
-
-
-
 
 ### Installing
 
@@ -273,11 +267,7 @@ Given that mental and physical performance would diminish far before the time-to
 ## Built with
 
 * [IBM Cloudant](https://cloud.ibm.com/catalog?search=cloudant#search_results) - The NoSQL database used
-* [IBM Cloud Functions](https://cloud.ibm.com/catalog?search=cloud%20functions#search_results) - The compute platform for handing logic
-* [IBM API Connect](https://cloud.ibm.com/catalog?search=api%20connect#search_results) - The web framework used
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+*
 
 ## Authors
 
