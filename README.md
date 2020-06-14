@@ -200,8 +200,6 @@ X contains 5 sets of data obtained from trainings under different 5 environmenta
 The main advantage of our model is that it allows commanders to accurately estimate the time-to-fatigue 
 of the responders in an operation
 
-Anomaly Detection Model
-
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Scenario_table.png" alt="Scenario Table" height="400"/>
 
 For illustration purposes, we show how our algorithm works with 1 input variable (Heart rate). The heart rate of the responder since the start of the operation is graphed. 
@@ -222,6 +220,7 @@ The thresholds are determined by the cont_fraction in the model which was implem
 
 Using scenario 3 as an example, we see that the 10 min threshold was not exceeded but the 30 min threshold has been exceeded. This implies that based on the responder's vital data, the responder is unlikely to be able to continue operations for another 30 mins. However, he is likely to be able to continue for another 10 min. Hence, his time-to-fatigue is less than 30 mins. 
 
+### Benefits of sliding window
 Using windows of different time periods, this allows commanders to judge the useful timespan of his responders. Not only does this ensure the safety of responders by allowing commanders to extract them when they are exhausted, this technology also allows commanders to better plan their manpower real time in search and rescue operations.
 
 Our model is novel because it creates a cluster of normal data points for every set of environmental conditions. 
