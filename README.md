@@ -1,5 +1,7 @@
 # RE Design Acclimatisation Conditioning Engine (ACE)
 
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/ACE Logo transparent.png" alt="Logo" height="250"/>
+
 Team RE Design's proposed solution for SCDF X IBM Lifesavers' Innovation Challenge: Call for Code 2020.
 
 ## Contents
