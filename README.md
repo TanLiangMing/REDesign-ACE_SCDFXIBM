@@ -199,7 +199,7 @@ of the responders in an operation
 
 Anomaly Detection Model
 
-
+![Scenario Table]Scenario table.png
 
 For illustration purposes, we show how our algorithm works with 1 input variable (Heart rate). The heart rate of the responder since the start of the operation is graphed. 
 
