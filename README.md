@@ -199,23 +199,7 @@ of the responders in an operation
 
 Anomaly Detection Model
 
-| Situation | Window | Anomaly detected | Time-to-fatigue/min |
-| --- | --- | --- | --- |
-| 1 | 10 min | Y | <10 |
-|   | 30 min | Y |
-| 2 | 10 min | Y | <10 |
-|   | 30 min | N |
-| 3 | 10 min | N | <30 |
-|   | 30 min | Y |
-| 4 | 10 min | N | <30 |
-|   | 30 min | N |     |
 
-
-Our model is novel because it creates a cluster of normal data points for every set of environmental conditions. 
-This allows us to easily flag anomalous data points pertaining to the specific environmental condition. However, 
-our model will only work well if the model has been trained with a good range of different environmental conditions. 
-Otherwise, an anomaly might be flagged because of anomalous environmental conditions and not because of anomalous 
-vital signs.
 
 For illustration purposes, we show how our algorithm works with 1 input variable (Heart rate). The heart rate of the responder since the start of the operation is graphed. 
 
@@ -236,6 +220,12 @@ The thresholds are determined by the cont_fraction in the model which was implem
 Using scenario 3 as an example, we see that the 10 min threshold was not exceeded but the 30 min threshold has been exceeded. This implies that based on the responder's vital data, the responder is unlikely to be able to continue operations for another 30 mins. However, he is likely to be able to continue for another 10 min. Hence, his time-to-fatigue is less than 30 mins. 
 
 Using windows of different time periods, this allows commanders to judge the useful timespan of his responders. Not only does this ensure the safety of responders by allowing commanders to extract them when they are exhausted, this technology also allows commanders to better plan their manpower real time in search and rescue operations.
+
+Our model is novel because it creates a cluster of normal data points for every set of environmental conditions. 
+This allows us to easily flag anomalous data points pertaining to the specific environmental condition. However, 
+our model will only work well if the model has been trained with a good range of different environmental conditions. 
+Otherwise, an anomaly might be flagged because of anomalous environmental conditions and not because of anomalous 
+vital signs.
 
 ## Future extensions
 '**Further analysis of data points**'
