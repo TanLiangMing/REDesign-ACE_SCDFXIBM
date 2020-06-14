@@ -61,7 +61,7 @@ With this, both the ground commander and HQ can monitor the situation of all sol
 
 ## Project roadmap
 
-(REDesign Roadmap.png)
+REDesign Roadmap.png
 
 ## Getting started
 
