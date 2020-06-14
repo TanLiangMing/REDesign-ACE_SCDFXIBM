@@ -266,8 +266,9 @@ Given that mental and physical performance would diminish far before the time-to
 
 ## Built with
 
-* [IBM Cloudant](https://cloud.ibm.com/catalog?search=cloudant#search_results) - The NoSQL database used
-*
+* [IBM IoT](pics/Watson_IoT.png)
+* [IBM Cloudant](https://cloud.ibm.com/catalog?search=cloudant#search_results) - The NoSQL database
+* [IBM Watson Studio](pics/Watson_Studio.png) - For data processing and machine learning
 
 ## Authors
 
