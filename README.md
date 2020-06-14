@@ -60,9 +60,9 @@ With this, both the ground commander and HQ can monitor the situation of all sol
 3. Watson Cloudant stores the information as a database on the cloud
 4. Watson Studio utilizes Jupyter notebook to process the data and train the anomaly detection model
 
-![Iot](pics/Watson IoT platform.JPG)
+![Iot](pics/Watson_IoT_platform.JPG)
 
-![Cloudant](pics/Cloudant Database.JPG)
+![Cloudant](pics/Cloudant_Database.JPG)
 
 ## Project roadmap
 
@@ -199,7 +199,7 @@ of the responders in an operation
 
 Anomaly Detection Model
 
-
+![Scenario_table](pics/Scenario_table.png)
 
 For illustration purposes, we show how our algorithm works with 1 input variable (Heart rate). The heart rate of the responder since the start of the operation is graphed. 
 
