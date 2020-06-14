@@ -11,7 +11,6 @@ Team RE Design's proposed solution for SCDF X IBM Lifesavers' Innovation Challen
 1. [Getting started](#getting-started)
 1. [Future extensions](#future-extensions)
 1. [Running the tests](#running-the-tests)
-1. [Live demo](#live-demo)
 1. [Built with](#built-with)
 1. [Authors](#authors)
 1. [Acknowledgments](#acknowledgments)
@@ -29,27 +28,27 @@ Heat strain is a significant safety concern especially in the SCDF's line of wor
 
 Currently, there are plenty of existing wearable technology to measure heat strain indicators, namely Hexoskin (Carré Technologies Inc., Montreal, Que., Canada), LifeMonitor EQ02 (Equivital, Cambridge, UK), BioHarness 3.0 (Zephr Performance Systems, Annapolis, Md., USA), Questemp II (3M, St. Paul, Minn., USA), BioNomadix (BIOPAC Systems, Inc., Goleta, Calif., USA), BioRadio (Great Lakes Neurotechnologies, Cleveland, Ohio, USA).
 
-However most systems lack proper interpretation of physiological data to identify the signs and symptoms of excessive heat strain and merely displays what data it collects. Furthermore, they do not take into consideration the possible effects of climate change [[2](#references)].
+Although existing systems are capable of collecting huge amount of data, these data are often not optimally analysed to create maximum value. Furthermore, they do not take into consideration of the environmental conditions that are increasingly unpredictable due to climate change[[2](#references)].
 
 ### The idea
 
-First Responders may face an increasing physical challenge because of the increased environmental temperature (ET) and humidity (EH), which affects their physiological and psychological states both before and during operations. ET and EH are thus critical factors to take into consideration to maximise safety and performance.
+First Responders face an increasingly steep battle to perform due to the rising environmental temperature (ET) and humidity (EH). The physiological and psychological states of Responders have thresholds that vary with such environmental conditions. Hence, ET and EH are critical factors that should be evaluated to maximise safety and performance.
 
-Since the SCDF is currently looking into integrating Equivital EQ02 LifeMonitor with wearable sensors in the Heat Strain Monitor System (HSM) [[3](#references)], we intend to leverage on this and build a more powerful model with the data collected from this system.
+Since SCDF is currently looking into integrating Equivital EQ02 LifeMonitor with wearable sensors in the Heat Strain Monitor System (HSM) [[3](#references)], we intend to leverage on this to build a more intelligent analytical model using data collected from both the LifeMonitor and the Environmental Chamber.
 
 Our idea would be implemented in 2 phases: Training Phase, and Mission Phase.
 
 **Training Phase**:
-Individual physiological data (heart rate, core temperature [derive from skin temperature], breathing rate) from the wearable, as well as environmental data (ET and EH) from environmental chamber, would be captured and stored securely on IBM Cloud Object Storage after training. Our machine learning model, Acclimatisation Conditioning Engine (ACE), would then process the data via clustering and a time series analysis. A global threshold for each of the physiological data for a given environmental data would first be derived for anomaly detection. Our models will also learn the time-to-fatigue, which is how long a person can safely maintain their level of exertion, given their current vital signs and the prevailing environmental conditions. Following that, when sufficient data is collected, a personal threshold would be derived by giving individual data a higher weightage in the calculations.
+Individual physiological data (heart rate, core temperature [derive from skin temperature], breathing rate) from the wearable, as well as environmental data (ET and EH) from environmental chamber, would be captured and stored securely on IBM Cloud Object Storage after training. Our machine learning model, Acclimatisation Conditioning Engine (ACE), would then process the data via clustering and a time series analysis. Our models will also learn the time-to-fatigue, which is how long a person can safely maintain their level of exertion, given their current vital signs and the prevailing environmental conditions. Following that, when sufficient data is collected, a personal threshold would be derived by giving individual data a higher weightage in the calculations.
 
 **Mission Phase**:
-The central hub would continue to monitor the soldiers' conditions. All soldiers would have a "health bar". When an anomaly is detected, be it during training or when soldiers are deployed, the central hub would notify the ground commander and HQ in the form of a depleting health bar, changing from green to yellow or red, depending on the number of thresholds breached by anomalous physiological data received. The estimated time-to-fatigue would also be displayed.
+In the Mission Phase, vital signs (collected by the wearable) and environmental data (from the WBGT device) are streamed to a central hub and fed into our multivariate anomaly detection models, where anomalies that exceed the ‘safe’ range of the respective time windows are flagged. For example, if the average readings in the past 10 minutes is recognised by our 10-minute model as an anomaly, the time-to-fatigue is less than 10 minutes. As the anomaly continues to be flagged,the “health bar” of the responder depletes (changing from green to yellow or red) and his time-to-fatigue drops, alerting ground commanders and HQ of his deteriorating state. 
 
-With this, both the ground commander and HQ can monitor the situation of all soldiers accurately as the model does not depend on a fixed index, but instead generates personal thresholds based on individualised data. Considering the highly volatile weather due to climate change, our customised thresholds provide a more accurate estimation of the soldiers' current "health".
+Considering the highly volatile weather due to climate change, our customised thresholds provide a more accurate estimation of the soldiers' current "health". ACE serves to monitor the Responders’ conditions accurately to enhance safety and maximise performance within SCDF despite the prevailing volatile climate. In doing so, ACE hopes to bring SCDF a step closer to becoming a world-leading life saving force.
 
 ## Demo video
 
-
+(Insert video link)
 
 ## The architecture
 
@@ -60,6 +59,12 @@ With this, both the ground commander and HQ can monitor the situation of all sol
 3. **Watson Cloudant** stores the information as a database on the cloud
 4. **Watson Studio** utilizes **Jupyter notebook** to process the data and train the anomaly detection model
 
+Watson Internet of Things: <br>
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Watson_IoT_platform.JPG" alt="IOT" height="450"/>
+
+Cloudant Database: <br>
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Cloudant_Database.JPG" alt="Cloudant Database" height="350"/>
+
 ## Project roadmap
 
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Roadmap.jpg" alt="Road Map" height="850"/>
@@ -67,10 +72,7 @@ With this, both the ground commander and HQ can monitor the situation of all sol
 
 ## Getting started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
-IBM cloud CLI
 
 Create a new Notebook on IBM Watson Studio and Import Packages 
 ```bash
@@ -83,31 +85,6 @@ from botocore.client import Config
 import ibm_boto3
 import seaborn as sb
 ```
-### Watson Internet of Things Platform
-Create and launch an instance of Watson Internet of Things platform
-![Launch](pics/Launch.JPG)
-
-Integrate local devices by adding devices to the IoT platform. Set Device type, Device ID and authentication token.
-![Add](pics/Add.JPG)
-
-Using the IBM Cloud CLI, push a web application onto the IBM Cloud
-
-![loud_push](pics/loud_push.JPG)
-
-IoT devices like the EQ02 Life Monitor and WBGT thermometer can connect and send data to the IoT platform via the web application
-![HR](pics/HR.JPG)
-
-The status of the devices can be monitored through the IoT platform
-![Browse](pics/Browse.JPG)
-
-Live feed from the different monitors can be displayed and viewed
-Watson Internet of Things: <br>
-<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Watson_IoT_platform.JPG" alt="IOT" height="450"/>
-
-### IBM Cloudant
-Historical data for each individual is then stored on IBM cloudant to be accessed in the future.
-Cloudant Database: <br>
-<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Cloudant_Database.JPG" alt="Cloudant Database" height="350"/>
 
 ### Installing
 
@@ -141,7 +118,7 @@ for i in range(n_datasets):
 ```
 We have provided 5 sets of training datasets (5 training datasets each having differing environmental conditions) 
 and 1 set of test dataset in the .csv format. 
-The datasets are created by us to simulate real life conditions that vary with external temperature and humidity 
+The datasets are created by us to simulate real life conditions with varying external temperature and humidity 
 These files would be used primarily to build the anomaly detection model as a proof of concept.
 
 ## Running the tests
@@ -150,20 +127,20 @@ In our code, we experimented with 3 different sliding windows of duration (10min
 X contains 5 sets of data obtained from trainings under different 5 environmental conditions.
 
   1. Using df_10min and df_30min, we can calculate the average data (E.g Ext temp, Humidity etc) 
-     over a 10min and 30min window respectively
+     over a 10min and 30min window respectively.
   ```bash
   # Extract the Features from the Data
-  X = pd.DataFrame(df_10min[["Ext Temp", "Humidity", "Core Temp", "Heart Rate", "Breathing Rate", "PSI"]])
+  X1 = pd.DataFrame(df_10min[["Ext Temp", "Humidity", "Core Temp", "Heart Rate", "Breathing Rate", "PSI"]])
 
   # Extract the Features from the Data
-  X = pd.DataFrame(df_30min[["Ext Temp", "Humidity", "Core Temp", "Heart Rate", "Breathing Rate", "PSI"]])
+  X2 = pd.DataFrame(df_30min[["Ext Temp", "Humidity", "Core Temp", "Heart Rate", "Breathing Rate", "PSI"]])
   ```
 
   2. Local Outlier Factor was chosen as our anomaly detection algorithm where the local deviation in density 
      of a datapoint is measured with respect to its neighbours. An anomaly is then flagged if the datapoint 
-     is sufficiently isolated compared to its neighbouring points. This trained model allows us to flag datapoint 
-     as anomalous during operations and trainings if the datapoint collected deviates significantly from the 
-     data points of other trainings under similar environmental conditions.
+     is sufficiently isolated compared to its neighbouring points. This trained model allows us to flag the data point 
+     as anomalous during operations and trainings if it deviates significantly from the data points of trainings under
+     similar environmental conditions.
   
   ```bash
   # Create Anomaly Detection Model using LocalOutlierFactor
@@ -189,7 +166,7 @@ X contains 5 sets of data obtained from trainings under different 5 environmenta
   ```
   
  5. After the model is built, we load the test dataset (SCDF_dataset_test1.csv) and use the model to 
-    predict the anomalies of the test dataset. 
+    predict anomalies in the test dataset. 
   
   ```bash
   #Load test dataset
@@ -201,8 +178,9 @@ X contains 5 sets of data obtained from trainings under different 5 environmenta
   anomaly_or_not = clf.predict(real_time_data)
   ```
   
-  6. A warning would only be detected if 10 consecutive anomalies are detected. This value can be changed 
-     accordingly to tune the sensitivity of the detection system.
+  6. A warning will only be displayed if 10 consecutive anomalies are detected. The counterLimit can be changed 
+     accordingly to tune the sensitivity of the detection system. For example, if mission setting is high risk, 
+     counterLimit should be set to a lower value.
      
   ```bash
   counter = 0
@@ -218,27 +196,29 @@ X contains 5 sets of data obtained from trainings under different 5 environmenta
    ```
 ### Interpreting the results
 The main advantage of our model is that it allows commanders to accurately estimate the time-to-fatigue 
-of the responders in an operation
+of the responders in an operation.
 
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Scenario_table.png" alt="Scenario Table" height="400"/>
 
-For illustration purposes, we show how our algorithm works with 1 input variable (Heart rate). The heart rate of the responder since the start of the operation is graphed. 
+For illustration purposes, we will only use 1 input variable (Heart rate) to reflect scenario 3 shown above.
 
-The average heart rate of the responder for the past 10 and 30 minutes are calculated. (We chose to use average but this model can be further optimised by taking into account trends, weighted average etc). The data is continuously updated in intervals of 5 seconds as new data is collected and sent to the cloud
+The average heart rate of the responder for the past 10 and 30 minutes are calculated. (We chose to use average but this model can be further optimised by taking into account trends, weighted average etc). The data is continuously updated in intervals of 5 seconds as new data is collected and sent to the Watson IoT platform.
 
 ![graph1](pics/graph1.png)
 
-By putting more weights to the environmental variables (Temp and humidity), we are able to compare if the 10min rolling average data for a specific responder during operation is an anomalous result compared to the 10min rolling average of the responder’s own training data under similar environmental conditions. 
+We are able to determine if the 10min rolling average data for a specific responder during operation is an anomalous result compared to the 10min rolling average of the responder’s own training data under similar environmental conditions. 
 
 ![graph2](pics/graph2.png)
 
-The responder’s 30min rolling average data is also compared to his 30 rmin rolling average data during training.
+This process is repeated with a 30 min window. 
 
 ![graph3](pics/graph3.png)
 
 The thresholds are determined by the cont_fraction in the model which was implemented above. This variable can be further optimised. 
 
-Using scenario 3 as an example, we see that the 10 min threshold was not exceeded but the 30 min threshold has been exceeded. This implies that based on the responder's vital data, the responder is unlikely to be able to continue operations for another 30 mins. However, he is likely to be able to continue for another 10 min. Hence, his time-to-fatigue is less than 30 mins. 
+### Conclusion
+
+The 10 min threshold was not exceeded but the 30 min threshold has been exceeded. This implies that based on the responder's vital data, the responder is unlikely to be able to continue operations for another 30 mins. However, he is likely to be able to continue for another 10 min. Hence, his time-to-fatigue is less than 30 mins. 
 
 ### Benefits of sliding window
 Using windows of different time periods, this allows commanders to judge the useful timespan of his responders. Not only does this ensure the safety of responders by allowing commanders to extract them when they are exhausted, this technology also allows commanders to better plan their manpower real time in search and rescue operations.
@@ -254,21 +234,22 @@ vital signs.
 
 We can incorporate a distance algorithm that measures how serious the deviations of the anomalies are to gauge the direness of the responder’s condition. We can also include the detection of points that could potentially lead to anomalies using predictive machine learning (leverage from DSO’s predictive analysis for the Heat Sensor Monitor). This would allow commanders to better gauge the condition of the teams.
 
+Eg. If heart rate deviates significantly from the threshold, a critical warning will be displayed regardless of all other factors
+
 **Enhanced intervention**:
 
 Besides simply having just warning signs and notifications from the anomaly detection system, we can incorporate other physical mechanisms that can provide instantaneous relief during very serious states (eg. when prolonged consecutive anomalies detected).
 
 **Incorporating performance data**:
 
-Given that mental and physical performance would diminish far before the time-to-fatigue, it would be important to have an indication of the responder’s performance. To achieve this, we would need data on the responder’s performance during trainings, which could be obtained through evaluation from instructors, peers and self. However, this idea needs to be refined further. Collecting objective data is difficult, and each responder’s performance varies across different tasks depending on experience and aptitude. 
+Given that mental and physical performance would diminish far before the time-to-fatigue, it would be important to have an indication of the responder’s performance. To achieve this, we would need data on the responder’s performance during trainings, which could be obtained through evaluation from instructors, peers and self. 
 
- 
 
 ## Built with
 
-* [IBM IoT](pics/Watson_IoT.png)
-* [IBM Cloudant](https://cloud.ibm.com/catalog?search=cloudant#search_results) - The NoSQL database
-* [IBM Watson Studio](pics/Watson_Studio.png) - For data processing and machine learning
+* [IBM Cloudant](https://cloud.ibm.com/catalog?search=cloudant#search_results) - The NoSQL database used
+* [IBM Cloud Functions](https://cloud.ibm.com/catalog?search=cloud%20functions#search_results) - The compute platform for handing logic
+* [IBM API Connect](https://cloud.ibm.com/catalog?search=api%20connect#search_results) - The web framework used
 
 ## Authors
 
@@ -280,7 +261,7 @@ Given that mental and physical performance would diminish far before the time-to
 
 ## Acknowledgments
 
-* Based on [Billie Thompson's README template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2).
+We would like to express our thanks to SCDF for providing us insights to the Civil Defence Force and their operations and IBM for providing us this opportunity to understand the features of IBM cloud.  
 
 ## References
 1. Flouris, A. D., Dinas, P. C., Ioannou, L. G., Nybo, L., Havenith, G., Kenny, G. P., & Kjellstrom, T. (2018). Workers' health and productivity under occupational heat strain: a systematic review and meta-analysis. The Lancet Planetary Health, 2(12), e521-e531.
