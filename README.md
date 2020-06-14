@@ -9,6 +9,7 @@ Team RE Design's proposed solution for SCDF X IBM Lifesavers' Innovation Challen
 1. [The architecture](#the-architecture)
 1. [Project roadmap](#project-roadmap)
 1. [Getting started](#getting-started)
+1. [Future extensions](#future-extensions)
 1. [Running the tests](#running-the-tests)
 1. [Live demo](#live-demo)
 1. [Built with](#built-with)
@@ -220,15 +221,15 @@ For illustration purposes, we show how our algorithm works with 1 input variable
 
 The average heart rate of the responder for the past 10 and 30 minutes are calculated. (We chose to use average but this model can be further optimised by taking into account trends, weighted average etc). The data is continuously updated in intervals of 5 seconds as new data is collected and sent to the cloud
 
-[insert image]
+![Iot](Watson IoT platform.JPG)
 
 By putting more weights to the environmental variables (Temp and humidity), we are able to compare if the 10min rolling average data for a specific responder during operation is an anomalous result compared to the 10min rolling average of the responder’s own training data under similar environmental conditions. 
 
-[insert image]
+![Iot](Watson IoT platform.JPG)
 
 The responder’s 30min rolling average data is also compared to his 30 rmin rolling average data during training.
 
-[insert image]
+![Iot](Watson IoT platform.JPG)
 
 The thresholds are determined by the cont_fraction in the model which was implemented above. This variable can be further optimised. 
 
@@ -236,14 +237,14 @@ Using scenario 3 as an example, we see that the 10 min threshold was not exceede
 
 Using windows of different time periods, this allows commanders to judge the useful timespan of his responders. Not only does this ensure the safety of responders by allowing commanders to extract them when they are exhausted, this technology also allows commanders to better plan their manpower real time in search and rescue operations.
 
-## Future Extensions
-a. Further analysis of data points
+## Future extensions
+'**Further analysis of data points**'
 We can incorporate a distance algorithm that measures how serious the deviations of the anomalies are to gauge the direness of the responder’s condition. We can also include the detection of points that could potentially lead to anomalies using predictive machine learning (leverage from DSO’s predictive analysis for the Heat Sensor Monitor). This would allow commanders to better gauge the condition of the teams.
 
-b. Enhanced intervention 
+'**Enhanced intervention**'
 Besides simply having just warning signs and notifications from the anomaly detection system, we can incorporate other physical mechanisms that can provide instantaneous relief during very serious states (eg. when prolonged consecutive anomalies detected).
 
-c. Incorporating performance data
+'**Incorporating performance data**'
 Given that mental and physical performance would diminish far before the time-to-fatigue, it would be important to have an indication of the responder’s performance. To achieve this, we would need data on the responder’s performance during trainings, which could be obtained through evaluation from instructors, peers and self. However, this idea needs to be refined further. Collecting objective data is difficult, and each responder’s performance varies across different tasks depending on experience and aptitude. 
 
   
