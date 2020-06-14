@@ -53,16 +53,16 @@ With this, both the ground commander and HQ can monitor the situation of all sol
 
 ## The architecture
 
-![Architecture](pics/Architecture.png)
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Architecture.png" alt="Architecture" height="450"/>
 
 1. EQ02 Life Monitor measures and transmits vitals information over wireless data link
 2. Watson Internet of Things platform processes and visualises the information 
 3. Watson Cloudant stores the information as a database on the cloud
 4. Watson Studio utilizes Jupyter notebook to process the data and train the anomaly detection model
 
-![Iot](pics/Watson_IoT_platform.JPG)
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Watson_IoT_platform.JPG" alt="IOT" height="450"/>
 
-![Cloudant](pics/Cloudant_Database.JPG)
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Cloudant_Database.JPG" alt="Cloudant Database" height="350"/>
 
 ## Project roadmap
 
@@ -240,30 +240,7 @@ Besides simply having just warning signs and notifications from the anomaly dete
 
 Given that mental and physical performance would diminish far before the time-to-fatigue, it would be important to have an indication of the responder’s performance. To achieve this, we would need data on the responder’s performance during trainings, which could be obtained through evaluation from instructors, peers and self. However, this idea needs to be refined further. Collecting objective data is difficult, and each responder’s performance varies across different tasks depending on experience and aptitude. 
 
-  
-### Break down into end to end tests
-
-Explain what these tests test and why, if you were using something like `mocha` for instnance
-
-```bash
-npm install mocha --save-dev
-vi test/test.js
-./node_modules/mocha/bin/mocha
-```
-
-### And coding style tests
-
-Explain what these tests test and why, if you chose `eslint` for example
-
-```bash
-npm install eslint --save-dev
-npx eslint --init
-npx eslint sample-file.js
-```
-
-## Live demo
-
-You can find a running system to test at [callforcode.mybluemix.net](http://callforcode.mybluemix.net/)
+ 
 
 ## Built with
 
