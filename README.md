@@ -97,7 +97,16 @@ Integrate local devices by adding devices to the IoT platform. Set Device type, 
 ![Add](pics/Add.JPG)
 
 Using the IBM Cloud CLI, push a web application onto the IBM Cloud
+
 ![loud_push](pics/loud_push.JPG)
+
+IoT devices like the EQ02 Life Monitor and WBGT thermometer can connect and send data to the IoT platform through the web application
+![HR](pics/HR.JPG)
+
+The status of the devices can be monitored through the IoT platform
+![Browse](pics/Browse.JPG)
+
+Live feed from the different monitors
 
 ### Installing
 
