@@ -55,9 +55,12 @@ With this, both the ground commander and HQ can monitor the situation of all sol
 ![Architecture](Architecture.png)
 
 1. EQ02 Life Monitor measures and transmits vitals information over wireless data link
-2. Watson Internet of Things platform processes and visualises the information ![Iot](Watson IoT platform.JPG)
-3. Watson Cloudant stores the information as a database on the cloud ![Cloudant](Cloudant Database.JPG)
+2. Watson Internet of Things platform processes and visualises the information 
+3. Watson Cloudant stores the information as a database on the cloud
 4. Watson Studio utilizes Jupyter notebook to process the data and train the anomaly detection model
+
+![Iot](Watson IoT platform.JPG)
+![Cloudant](Cloudant Database.JPG)
 
 ## Project roadmap
 
