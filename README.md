@@ -11,7 +11,6 @@ Team RE Design's proposed solution for SCDF X IBM Lifesavers' Innovation Challen
 1. [Getting started](#getting-started)
 1. [Future extensions](#future-extensions)
 1. [Running the tests](#running-the-tests)
-1. [Live demo](#live-demo)
 1. [Built with](#built-with)
 1. [Authors](#authors)
 1. [Acknowledgments](#acknowledgments)
