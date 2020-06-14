@@ -102,8 +102,7 @@ Watson Internet of Things: <br>
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Watson_IoT_platform.JPG" alt="IOT" height="450"/>	
 
 ### IBM Cloudant	
-Historical data for each individual is then stored on IBM cloudant to be accessed in the future.	
-Cloudant Database: <br>	
+Historical data for each individual is then stored on IBM cloudant database for future access	
 <img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Cloudant_Database.JPG" alt="Cloudant Database" height="350"/>
 
 ### Installing
