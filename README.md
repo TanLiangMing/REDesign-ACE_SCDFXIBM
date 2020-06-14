@@ -267,7 +267,7 @@ Given that mental and physical performance would diminish far before the time-to
 ## Built with
 * [IBM Internet of Things](https://cloud.ibm.com/catalog/services/internet-of-things-platform) - Communication hub between devices
 * [IBM Cloudant](https://cloud.ibm.com/catalog?search=cloudant#search_results) - The NoSQL database used
-* [Watson Studio] (https://cloud.ibm.com/catalog/services/watson-studio) - Jupyter notebook utilized
+* [Watson Studio](https://cloud.ibm.com/catalog/services/watson-studio) - Jupyter notebook utilized
 
 ## Authors
 
