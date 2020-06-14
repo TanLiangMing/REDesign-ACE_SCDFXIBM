@@ -66,7 +66,8 @@ With this, both the ground commander and HQ can monitor the situation of all sol
 
 ## Project roadmap
 
-![Roadmap](pics/Roadmap.jpg)
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Roadmap.jpg" alt="Road Map" height="850"/>
+
 
 ## Getting started
 
@@ -199,7 +200,7 @@ of the responders in an operation
 
 Anomaly Detection Model
 
-![Scenario_table](pics/Scenario_table.png)
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Scenario_table.png" alt="Scenario Table" height="400"/>
 
 For illustration purposes, we show how our algorithm works with 1 input variable (Heart rate). The heart rate of the responder since the start of the operation is graphed. 
 
