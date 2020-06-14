@@ -54,10 +54,10 @@ With this, both the ground commander and HQ can monitor the situation of all sol
 
 ![Architecture](Architecture.png)
 
-1. The user navigates to the site and uploads a video file.
-2. Watson Speech to Text processes the audio and extracts the text.
-3. Watson Translation (optionally) can translate the text to the desired language.
-4. The app stores the translated text as a document within Object Storage.
+1. EQ02 Life Monitor measures and transmits vitals information over wireless data link
+2. Watson Internet of Things platform processes and visualises the information ![Iot](Watson IoT platform.JPG)
+3. Watson Cloudant stores the information as a database on the cloud ![Cloudant](Cloudant Database.JPG)
+4. Watson Studio utilizes Jupyter notebook to process the data and train the anomaly detection model
 
 ## Project roadmap
 
