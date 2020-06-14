@@ -59,20 +59,15 @@ Considering the highly volatile weather due to climate change, our customised th
 3. **Watson Cloudant** stores the information as a database on the cloud
 4. **Watson Studio** utilizes **Jupyter notebook** to process the data and train the anomaly detection model
 
-Watson Internet of Things: <br>
-<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Watson_IoT_platform.JPG" alt="IOT" height="450"/>
-
-Cloudant Database: <br>
-<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Cloudant_Database.JPG" alt="Cloudant Database" height="350"/>
-
 ## Project roadmap
 
-<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Roadmap.jpg" alt="Road Map" height="850"/>
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Roadmap.png" alt="Road Map" height="850"/>
 
 
 ## Getting started
 
 ### Prerequisites
+IBM Cloud CLI
 
 Create a new Notebook on IBM Watson Studio and Import Packages
 ```bash
@@ -85,6 +80,31 @@ from botocore.client import Config
 import ibm_boto3
 import seaborn as sb
 ```
+### Watson Internet of Things Platform	
+Create and launch an instance of Watson Internet of Things platform	
+![Launch](pics/Launch.JPG)	
+
+Integrate local devices by adding devices to the IoT platform. Set Device type, Device ID and authentication token.	
+![Add](pics/Add.JPG)	
+
+Using the IBM Cloud CLI, push a web application onto the IBM Cloud	
+
+![loud_push](pics/loud_push.JPG)	
+
+IoT devices like the EQ02 Life Monitor and WBGT thermometer can connect and send data to the IoT platform via the web application	
+![HR](pics/HR.JPG)	
+
+The status of the devices can be monitored through the IoT platform	
+![Browse](pics/Browse.JPG)	
+
+Live feed from the different monitors can be displayed and viewed	
+Watson Internet of Things: <br>	
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Watson_IoT_platform.JPG" alt="IOT" height="450"/>	
+
+### IBM Cloudant	
+Historical data for each individual is then stored on IBM cloudant to be accessed in the future.	
+Cloudant Database: <br>	
+<img src="https://github.com/TanLiangMing/REDesign-ACE_SCDFXIBM/blob/master/pics/Cloudant_Database.JPG" alt="Cloudant Database" height="350"/>
 
 ### Installing
 
@@ -246,10 +266,9 @@ Given that mental and physical performance would diminish far before the time-to
 
 
 ## Built with
-
+* [IBM Internet of Things](https://cloud.ibm.com/catalog/services/internet-of-things-platform) - Communication hub between devices
 * [IBM Cloudant](https://cloud.ibm.com/catalog?search=cloudant#search_results) - The NoSQL database used
-* [IBM Cloud Functions](https://cloud.ibm.com/catalog?search=cloud%20functions#search_results) - The compute platform for handing logic
-* [IBM API Connect](https://cloud.ibm.com/catalog?search=api%20connect#search_results) - The web framework used
+* [Watson Studio] (https://cloud.ibm.com/catalog/services/watson-studio) - Jupyter notebook utilized
 
 ## Authors
 
