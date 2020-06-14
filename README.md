@@ -53,7 +53,7 @@ With this, both the ground commander and HQ can monitor the situation of all sol
 
 ## The architecture
 
-![Architecture](Architecture.png)
+![Architecture](pics/Architecture.png)
 
 1. EQ02 Life Monitor measures and transmits vitals information over wireless data link
 2. Watson Internet of Things platform processes and visualises the information 
